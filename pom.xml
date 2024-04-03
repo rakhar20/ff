@@ -14,7 +14,7 @@
 	<name>demo</name>
 	<description>Demo project for Spring Boot</description>
 	<properties>
-		<java.version>22</java.version>
+		<java.version>17</java.version>
 	</properties>
 	<dependencies>
 		<dependency>
@@ -49,12 +49,21 @@
 		                </executions>
 		                <configuration>
 		                    <!-- Specify your Dockerfile location -->
-		                    <dockerfile>${project.basedir}/src/main/docker/Dockerfile</dockerfile>
+		                    <dockerfile>${project.basedir}/Dockerfile</dockerfile>
 		                    <!-- Specify your Docker image name -->
 		                    <imageName>your-docker-image-name:${project.version}</imageName>
 		                    <!-- Additional configuration options can be specified here -->
-		                </configuration>
-           		 </plugin>
+			    </configuration>
+		    	</plugin>
+                        <plugin>
+    				<groupId>org.apache.maven.plugins</groupId>
+    				<artifactId>maven-compiler-plugin</artifactId>
+    <!-- No version specified to use the latest version available -->
+    				<configuration>
+        				<source>17</source> <!-- Set Java source version -->
+        				<target>17</target> <!-- Set Java target version -->
+    				</configuration>
+			</plugin>
 		</plugins>
 	</build>
 
