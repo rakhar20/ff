@@ -35,6 +35,26 @@
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
 			</plugin>
+			<plugin>
+		                <groupId>com.spotify</groupId>
+		                <artifactId>dockerfile-maven-plugin</artifactId>
+		                <version>1.4.9</version>
+		                <executions>
+		                    <execution>
+		                        <id>default</id>
+		                        <goals>
+		                            <goal>build</goal>
+		                        </goals>
+		                    </execution>
+		                </executions>
+		                <configuration>
+		                    <!-- Specify your Dockerfile location -->
+		                    <dockerfile>${project.basedir}/src/main/docker/Dockerfile</dockerfile>
+		                    <!-- Specify your Docker image name -->
+		                    <imageName>your-docker-image-name:${project.version}</imageName>
+		                    <!-- Additional configuration options can be specified here -->
+		                </configuration>
+           		 </plugin>
 		</plugins>
 	</build>
 
